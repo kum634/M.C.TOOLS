@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+
+form table {
+  padding: 0px;
+  width: 100%;
+  font-size: 1vw;
+}
+form td:nth-child(1):not(.submit_cell) {
+  background: #e9ecef;
+}
+form td:nth-child(2):not(.submit_cell) {}
+form td:nth-child(3) {
+  text-align: center !important;
+}
+form td {
+  padding: 10px;
+  border: 1px solid #CCC;
+  width: 50%;
+}
+select {
+  width: 60%;
+}
+footer ul {
+  margin: 0 auto;
+  padding: 0px;
+  width: 80%;
+  list-style-type: none;
+}
+#judgment_box {
+  margin: 20px auto;
+  border: 1px solid #CCC;
+  padding: 20px;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 800px;
+  background: #fff;
+}
+#submit {
+  margin-top: 20px;
+}
+.row {
+  font-size: 1vw;
+}
+span {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#result_box table {
+  margin: 0 auto;
+  padding: 0px;
+}
+#result_box th {
+  padding-bottom: 10px;
+}
+#result_box td {
+  border: 1px solid #ccc;
+  padding: 10px 0 !important;
+  font-size: 1rem;
+}
+#result_box td:nth-child(1) {
+  width: 30%;
+  background: #e9ecef;
+}
+#result_box td:nth-child(2) {
+  width: 70%;
+}
+#result_box {
+  margin-top: 20px;
+  display: none;
+  color: #333;
+}
+.meter th {
+  background: #e9ecef;
+  border: 1px solid #CCC;
+  width: 25% !important;
+}
+.meter td {
+  padding: 10px;
+  border: 1px solid #CCC;
+  width: 25% !important;
+}

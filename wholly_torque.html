@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/temp.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no,noindex,nofollow,noarchive">
+	<!-- InstanceBeginEditable name="doctitle" -->
+	<title>締付トルク計算</title>
+	<!-- InstanceEndEditable -->
+	<!-- Bootstrap -->
+	<link href="css/bootstrap-4.3.1.css" rel="stylesheet">
+	<link href="css/common.css" rel="stylesheet" type="text/css">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<!-- InstanceBeginEditable name="head" -->
+	<link href="css/calculation.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+	function bai() {
+		'use strict';
+
+		var screw = document.form1.screw.value;
+		var series = document.form1.series.selectedIndex;
+		screw=screw.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+			return String.fromCharCode(s.charCodeAt(0) - 65248);
+		});
+		var judgment_box = document.getElementById("judgment_box");
+		var input_box = document.getElementById("input_box");
+		var result_box= document.getElementById("result_box");
+		var nm = document.getElementById("nm");
+
+		if (series == 1) {
+			if(screw == "1") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.035N・m";
+			} else if (screw == "1.1") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.049N・m";
+			} else if (screw == "1.2") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.066N・m";
+			} else if (screw == "1.4") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.104N・m";
+			} else if (screw == "1.6") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.156N・m";
+			} else if (screw == "1.8") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.23N・m";
+			} else if (screw == "2") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.315N・m";
+			} else if (screw == "2.2") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.41N・m";
+			} else if (screw == "2.5") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "0.65N・m";
+			} else if (screw == "3") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "1.14N・m";
+			} else if (screw == "3.5") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "1.8N・m";
+			} else if (screw == "4") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "2.7N・m";
+			} else if (screw == "4.5") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "3.9N・m";
+			} else if (screw == "5") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "5.4N・m";
+			} else if (screw == "6") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "9.2N・m";
+			} else if (screw == "7") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "15N・m";
+			} else if (screw == "8") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "22N・m";
+			} else if (screw == "10") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "44N・m";
+			} else if (screw == "12") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "76N・m";
+			} else if (screw == "14") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "120N・m";
+			} else if (screw == "16") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "190N・m";
+			} else if (screw == "18") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "270N・m";
+			} else if (screw == "20") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "370N・m";
+			} else if (screw == "22") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "500N・m";
+			} else if (screw == "24") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "650N・m";
+			} else if (screw == "27") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "940N・m";
+			} else if (screw == "30") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "1260N・m";
+			} else if (screw == "33") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "1750N・m";
+			} else if (screw == "36") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "2250N・m";
+			} else if (screw == "39") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "2900N・m";
+			} else if (screw == "42") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "3600N・m";
+			} else if (screw == "45") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "4500N・m";
+			} else if (screw == "48") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "5300N・m";
+			} else if (screw == "52") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "6800N・m";
+			} else if (screw == "56") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "8600N・m";
+			} else if (screw == "60") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "10600N・m";
+			} else if (screw == "64") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "13000N・m";
+			} else if (screw == "68") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				nm.innerHTML = "16000N・m";
+			} else if (screw == "") {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				result_box.innerHTML = "数値が入力されていません。もう一度やり直してください。";
+			} else {
+				input_box.remove();
+				result_box.style.marginTop = "0px";
+				result_box.style.display = "block";
+				result_box.innerHTML = "数値の入力に不備があります。もう一度やり直して下さい。";
+			}
+		} else {
+			input_box.remove();
+			result_box.style.marginTop = "0px";
+			result_box.style.display = "block";
+			result_box.innerHTML = "入力に不備があります。もう一度やり直して下さい。";
+		}
+	}
+</script>
+<!-- InstanceEndEditable -->
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-white custom-hamburger">
+			<h1><a class="navbar-brand text-dark font-weight-bold" href="index.html">M.C.TOOLS</a></h1>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span> </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"> <a class="nav-link text-dark" href="index.html">ホーム <span class="sr-only">(current)</span></a> </li>
+					<li class="nav-item active"> <a class="nav-link text-dark" href="warning_wholly_torque.html"><i class="fas fa-wrench"></i> 締付トルク計算<span class="sr-only">(current)</span></a> </li>
+					<li class="nav-item active"> <a class="nav-link text-dark" href="warning_start_carb.html"><i class="fas fa-motorcycle"></i> 二輪車始動不良判定<span class="sr-only">(current)</span></a> </li>
+					<li class="nav-item active"> <a class="nav-link text-dark" href="warning_meter.html"><i class="fas fa-tachometer-alt"></i> メーター誤差計算<span class="sr-only">(current)</span></a> </li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+				</form>
+			</div>
+		</nav>
+	</header>
+	<div class="jumbotron jumbotron-fluid text-center mb-0"><!-- InstanceBeginEditable name="メインコンテンツ" -->
+		<h1 class="display-4 mb-5">torque</h1>
+		<div id="judgment_box">
+			<div id="input_box" class="text-center">
+				<form name="form1">
+					<table width="80%" border="0">
+						<tbody>
+							<tr>
+								<td class="text-left">系列</td>
+								<td class="text-left">
+									<select  name="series">
+										<option value="">-</option>
+										<option value="1.8">1.8系列</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">呼び径</td>
+								<td class="text-left">M
+									<input type="text" size="4" name="screw" value="">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<input class="text-center btn btn-primary btn-sm text-white" type="submit" id="submit"  onclick="bai()" value="判定">
+				</form>
+			</div>
+			<div id="result_box">
+				<table width="80%" border="0">
+					<tbody>
+						<tr>
+							<th colspan="2" scope="col">結果</th>
+						</tr>
+						<tr>
+							<td>締付トルク</td>
+							<td id="nm"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	<!-- InstanceEndEditable --> </div>
+	<footer>
+		<ul class="mt-4 mb-4">
+			<li> <a class="text-dark" href="index.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  ホーム <span class="sr-only">(current)</span></a> </li>
+			<li> <a class="text-dark" href="warning_wholly_torque.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  <i class="fas fa-wrench"></i> 締付トルク計算<span class="sr-only">(current)</span></a> </li>
+			<li> <a class="text-dark" href="warning_start_carb.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  <i class="fas fa-motorcycle"></i> 二輪車始動不良判定<span class="sr-only">(current)</span></a> </li>
+			<li> <a class="text-dark" href="warning_meter.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  <i class="fas fa-tachometer-alt"></i> メーター誤差計算<span class="sr-only">(current)</span></a> </li>
+		</ul>
+		<div class="row" style="background: #e9ecef ;">
+			<div class="text-center col-lg-6 offset-lg-3">
+				<p class="mt-3 mb-3" style="font-size: 0.8rem;">※当サイトを正常に動作させるために、最新のGoogle ChromeもしくはSafari等でご覧ください。</p>
+				<p class="mt-3 mb-3">Copyright &copy; 2020 &middot; All Rights Reserved &middot; <a href="index.html" >M.C.TOOLS</a></p>
+			</div>
+		</div>
+	</footer>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+</body>
+<!-- InstanceEnd --></html>

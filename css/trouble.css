@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+.yesno {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 640px;
+  height: 80%;
+  background: #FFF;
+}
+.col-6 {
+  padding: 0;
+}
+.col-12 > p {
+  font-weight: bold;
+}
+.result {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 5%;
+  width: 60%;
+}
+.result ul {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  width: 70%;
+  font-size: 0.8rem;
+}
+.result li {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 90%;
+}
+.result p {
+  text-align: left;
+}
+.row {
+  margin-top: 40px;
+}
+.btn-primary {
+  margin-bottom: 1.5rem;
+  width: 100px;
+  height: 50px;
+  line-height: 32px;
+}

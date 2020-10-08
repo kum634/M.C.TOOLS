@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+.warning {
+  margin: 0 auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  background: #FFF;
+}
+.warning ul {
+  padding-left: 20px;
+}
+.warning li {
+  margin: 15px 0;
+}
+#ofcouse {
+  padding-top: auto;
+  padding-bottom: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 80%;
+  height: auto;
+  white-space: nowrap;
+  font-size: smaller;
+}
+h1 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 2rem;
+}

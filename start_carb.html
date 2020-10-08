@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/temp.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no,noindex,nofollow,noarchive">
+	<!-- InstanceBeginEditable name="doctitle" -->
+	<title>二輪車始動不良判定</title>
+	<!-- InstanceEndEditable -->
+	<!-- Bootstrap -->
+	<link href="css/bootstrap-4.3.1.css" rel="stylesheet">
+	<link href="css/common.css" rel="stylesheet" type="text/css">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<!-- InstanceBeginEditable name="head" -->
+	<link href="css/trouble.css" rel="stylesheet" type="text/css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+	<script>
+	$(function() {
+		$(".yn_btn").on("click", function() {
+			$(this).parent().parent().parent().find("div").css("display","none");
+			id = $(this).attr("href");
+			$(id).show();
+		});
+	});
+</script>
+<!-- InstanceEndEditable -->
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-white custom-hamburger">
+			<h1><a class="navbar-brand text-dark font-weight-bold" href="index.html">M.C.TOOLS</a></h1>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span> </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"> <a class="nav-link text-dark" href="index.html">ホーム <span class="sr-only">(current)</span></a> </li>
+					<li class="nav-item active"> <a class="nav-link text-dark" href="warning_wholly_torque.html"><i class="fas fa-wrench"></i> 締付トルク計算<span class="sr-only">(current)</span></a> </li>
+					<li class="nav-item active"> <a class="nav-link text-dark" href="warning_start_carb.html"><i class="fas fa-motorcycle"></i> 二輪車始動不良判定<span class="sr-only">(current)</span></a> </li>
+					<li class="nav-item active"> <a class="nav-link text-dark" href="warning_meter.html"><i class="fas fa-tachometer-alt"></i> メーター誤差計算<span class="sr-only">(current)</span></a> </li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+				</form>
+			</div>
+		</nav>
+	</header>
+	<div class="jumbotron jumbotron-fluid text-center mb-0"><!-- InstanceBeginEditable name="メインコンテンツ" -->
+		<h1 class="display-4 mb-5"></h1>
+		<div class="yesno clearfix">
+			<div id="igon" >
+				<div class="row">
+					<div class="col-12">
+						<p>イグニッションONでランプ類は点灯しますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#igon_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#igon_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="igon_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>セルは回りますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#cell_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#cell_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="cell_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>プラグコードはしっかり取り付けてますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#cord_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#cord_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="cord_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>プラグコードをしっかり取り付けて下さい。</p>
+					</div>
+				</div>
+			</div>
+			<div id="cord_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>セルの回るスピードは速いですか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#fast_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#fast_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="fast_Y" style="display: none;">
+				<div class="row">
+					<div class="col-12">
+						<p>セルを回していて、初爆は起きますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#explode_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#explode_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="explode_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>プラグの状態をチェックしてください。先端が煤で真っ黒もしくはガソリンで湿ってませんか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#plug_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#plug_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="explode_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>燃料タンクにガソリンは入ってますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#gas_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#gas_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="gas_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>ガソリンは新しいですか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#new_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#new_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="new_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>キャブレターのチャンバーにガソリンは溜まってますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#ch_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#ch_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="ch_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>プラグの状態をチェックしてください。先端が煤で真っ黒もしくはガソリンで湿ってませんか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#plug_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#plug_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="ch_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>燃料タンクのコックの機能は正常ですか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#cock_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#cock_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="cock_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>プラグの状態をチェックしてください。先端が煤で真っ黒もしくはガソリンで湿ってませんか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#plug_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#plug_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="cock_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>燃料タンクの通気口は、塞がっていませんか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#vent_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#vent_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="vent_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>通気口の塞がりを解消してください。</p>
+						<div class="result"></div>
+					</div>
+				</div>
+			</div>
+			<div id="vent_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>プラグの状態をチェックしてください。先端が煤で真っ黒もしくはガソリンで湿ってませんか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#plug_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#plug_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="new_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>燃料タンク内とキャブレターのチャンバー内のガソリンを新しいものに入れ替えてください</p>
+						<div class="result"></div>
+					</div>
+				</div>
+			</div>
+			<div id="gas_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>ガソリンを入れてください。</p>
+						<div class="result"></div>
+					</div>
+				</div>
+			</div>
+			<div id="fast_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>バッテリの電圧は基準内ですか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#battery_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#battery_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="battery_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>追加した電装品の電気の消費量が大きすぎる可能性があります。一度それらを取り外す又は電流を測定してみて下さい。</p>
+					</div>
+				</div>
+			</div>
+			<div id="battery_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>バッテリーを満充電してみて下さい。それでも解消しない場合はバッテリの寿命が考えられるので新しいものに交換してみて下さい。</p>
+					</div>
+				</div>
+			</div>
+			<div id="cell_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>スタータのキルスイッチはOFFになっていますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#swich_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#swich_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="swich_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>サイドスタンドは上がってますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#stand_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#stand_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="stand_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>サイドスタンドをあげてください。</p>
+						<div class="result"></div>
+					</div>
+				</div>
+			</div>
+			<div id="stand_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>ニュートラルもしくはクラッチを握った状態でエンジンをかけていますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#nc_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#nc_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="nc_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>考えられる原因は</p>
+						<div class="result">
+							<ul>
+								<li>スタータスイッチの接点不良</li>
+								<li>スタータの不良</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="nc_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>ニュートラル入れるもしくはクラッチを握った状態でエンジンをかけて下さい。</p>
+						<div class="result"></div>
+					</div>
+				</div>
+			</div>
+			<div id="swich_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>スタータのキルスイッチをOFFにして下さい。</p>
+						<div class="result"></div>
+					</div>
+				</div>
+			</div>
+			<div id="igon_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>ヒューズは全て繋がってますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#fuse_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#fuse_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="fuse_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>バッテリーのターミナルのネジはしっかり締まってますか？</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><a href="#bs_Y" class="yn_btn btn btn-primary btn-lg text-white">はい</a> </div>
+					<div class="col-6"><a href="#bs_N" class="yn_btn btn btn-primary btn-lg text-white">いいえ</a></div>
+				</div>
+			</div>
+			<div id="bs_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>ターミナルの汚れによる導通不良の可能性があります。きっちりと清掃して下さい。</p>
+					</div>
+				</div>
+			</div>
+			<div id="bs_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>ネジの緩みによる導通不良の可能性があります。きっちりとネジを締めて下さい。</p>
+						<div class="result"></div>
+					</div>
+				</div>
+			</div>
+			<div id="fuse_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>新しい且つ適切な容量のヒューズに交換して下さい。</p>
+						<div class="result">
+							<p>※ヒューズが飛ぶには別になんらかの原因があるので、再発防止のため、同時にそちらの原因も究明して下さい。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="plug_Y" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>考えられる原因は</p>
+						<div class="result">
+							<ul>
+								<li>キャブレターの燃調が狂っている (燃料が濃い)</li>
+								<li>エアエレメントの詰まり</li>
+								<li>点火時期の遅れ</li>
+								<li>プラグの熱価の高すぎ</li>
+								<li>プラグコードの劣化</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="plug_N" style="display: none;" >
+				<div class="row">
+					<div class="col-12">
+						<p>考えられる原因は</p>
+						<div class="result">
+							<p>
+								<ul>
+									<li>インテークマニホールドのゴム類の劣化</li>
+									<li>インテークマニホールドのゴム類のひび割れ</li>
+									<li>キャブレターのジェット類の詰まり</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- InstanceEndEditable --></div>
+	<footer>
+		<ul class="mt-4 mb-4">
+			<li> <a class="text-dark" href="index.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  ホーム <span class="sr-only">(current)</span></a> </li>
+			<li> <a class="text-dark" href="warning_wholly_torque.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  <i class="fas fa-wrench"></i> 締付トルク計算<span class="sr-only">(current)</span></a> </li>
+			<li> <a class="text-dark" href="warning_start_carb.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  <i class="fas fa-motorcycle"></i> 二輪車始動不良判定<span class="sr-only">(current)</span></a> </li>
+			<li> <a class="text-dark" href="warning_meter.html"><span class="mr-3"><i class="fas fa-angle-right"></i></span>  <i class="fas fa-tachometer-alt"></i> メーター誤差計算<span class="sr-only">(current)</span></a> </li>
+		</ul>
+		<div class="row" style="background: #e9ecef;">
+			<div class="text-center col-lg-6 offset-lg-3">
+				<p class="mt-3 mb-3" style="font-size: 0.8rem;">※当サイトを正常に動作させるために、最新のGoogle ChromeもしくはSafari等でご覧ください。</p>
+				<p class="mt-3 mb-3">Copyright &copy; 2020 &middot; All Rights Reserved &middot; <a href="index.html" >M.C.TOOLS</a></p>
+			</div>
+		</div>
+	</footer>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+</body>
+<!-- InstanceEnd --></html>
